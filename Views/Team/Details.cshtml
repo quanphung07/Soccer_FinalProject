@@ -1,0 +1,38 @@
+@model FinalTest.Models.Team
+@{
+    ViewData["Title"] = "Details";
+}
+
+<table border="2" cellpadding="30">
+    <thead>
+        <th>Team Name</th>
+        <th>Players</th>
+
+    </thead>
+    <tbody>
+
+        <tr>
+
+            <td>
+                <h2>@ViewData["Teamname"]</h2>
+                <img src="~/Image/@Model.TeamImage">
+            </td>
+            <td>
+                @foreach (var item in @Model.Players)
+                {
+                   
+                        <ul>
+                        <li><a asp-controller="Player" asp-action="Details" asp-route-id="@item.PlayerID">
+                                <h4>@item.FullName</h4>
+                            </a>(<span>@item.Position</span>) </li>
+                    </ul>
+                    
+                    
+                }
+            </td>
+        </tr>
+
+
+    </tbody>
+</table>
+<a asp-action="Index" asp-controller="Team">Back To Teams</a>
