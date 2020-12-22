@@ -38,13 +38,13 @@ namespace FinalTest.Controllers
             
 
            if( await TryUpdateModelAsync<Player>(player,"",
-           p=>p.PlayerID,p=>p.FirstName,p=>p.LastName,p=>p.Kit,p=>p.Position,p=>p.Country))
+           p=>p.PlayerID,p=>p.FirstName,p=>p.LastName,p=>p.Kit,p=>p.Position,p=>p.Country,p=>p.CountryImage))
            {
                try
                {
 
                   await _repo.SaveChangesAsync();
-                  Console.Write(player.Kit);
+                  
                    return RedirectToAction("Edit",new {id=player.PlayerID,isSuccess=true});
                }
                catch(DbUpdateException)

@@ -15,6 +15,7 @@ namespace FinalTest.Models
         public string Position{get;set;}
         public string Country{get;set;}
         public string CountryImage{get;set;}
+        public int TeamID{get;set;}
         public virtual Team Team{get;set;}
         public string FullName{
             get{return FirstName+" "+LastName;}

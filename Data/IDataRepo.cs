@@ -8,10 +8,11 @@ namespace FinalTest.Data
     {
         //Team Data
         IEnumerable<Team> GetAllTeams();
-        Team GetTeamByName(string name);
+        Task<Team> GetTeamByNameAsync(string name);
         void CreateTeam(Team team);
-
-        //Player Data
+        Task<Team> GetTeamAsync(int? id);
+      
+                //Player Data
         Player GetPlayerById(int? id);
         void AddPlayer(Player player);
         void UpdatePlayer(Player player);

@@ -19,7 +19,7 @@ namespace FinalTest.Data
             _context.Players.Add(player);
             _context.SaveChanges();
         }
-
+       
         public void CreateTeam(Team team)
         {
             _context.Teams.Add(team);
@@ -54,12 +54,17 @@ namespace FinalTest.Data
             return stadium;            
         }
 
-        public Team GetTeamByName(string name)
+        public async Task<Team> GetTeamAsync(int? id)
         {
-            var team= _context.Teams
+            return await _context.Teams.FirstOrDefaultAsync(t=>t.TeamID==id);
+        }
+
+        public async Task<Team> GetTeamByNameAsync(string name)
+        {
+            var team= await _context.Teams
                         .Include(s=>s.Players)
                         .AsNoTracking()
-                        .FirstOrDefault(s=>s.TeamName==name);
+                        .FirstOrDefaultAsync(s=>s.TeamName==name);
             return team;            
 
         }

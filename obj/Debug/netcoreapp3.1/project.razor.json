@@ -14417,6 +14417,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "/home/quanbka/FinalTest/Views/Team/Create.cshtml",
+      "TargetPath": "Views\\Team\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/quanbka/FinalTest/Views/Team/Index.cshtml",
       "TargetPath": "Views\\Team\\Index.cshtml",
       "FileKind": "mvc"
