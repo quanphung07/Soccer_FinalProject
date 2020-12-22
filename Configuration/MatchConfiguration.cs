@@ -9,6 +9,7 @@ namespace FinalTest.Configuration
         public void Configure(EntityTypeBuilder<Match> builder)
         {
             builder.ToTable("match");
+            builder.HasKey(k=>k.MatchID);
             builder.HasOne(h=>h.HomeRes).WithMany(hm=>hm.HomeMatches);
              builder.HasOne(h=>h.AwayRes).WithMany(am=>am.AwayMatches);
              builder.HasOne(s=>s.Stadium).WithMany(m=>m.Matches);

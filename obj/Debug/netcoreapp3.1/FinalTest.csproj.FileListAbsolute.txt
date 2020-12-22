@@ -60,3 +60,6 @@
 /home/quanbka/FinalTest/obj/Debug/netcoreapp3.1/Razor/Views/Stadium/Details.cshtml.g.cs
 /home/quanbka/FinalTest/obj/Debug/netcoreapp3.1/Razor/Views/Player/Edit.cshtml.g.cs
 /home/quanbka/FinalTest/obj/Debug/netcoreapp3.1/Razor/Views/Team/Create.cshtml.g.cs
+/home/quanbka/FinalTest/obj/Debug/netcoreapp3.1/Razor/Views/Match/Index.cshtml.g.cs
+/home/quanbka/FinalTest/obj/Debug/netcoreapp3.1/Razor/Views/Match/Create.cshtml.g.cs
+/home/quanbka/FinalTest/obj/Debug/netcoreapp3.1/Razor/Views/Result/Create.cshtml.g.cs

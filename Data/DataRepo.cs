@@ -19,11 +19,42 @@ namespace FinalTest.Data
             _context.Players.Add(player);
             _context.SaveChanges();
         }
-       
+
+        public bool checkExist(int homeId, int awayId)
+        {
+           var check=_context.Matches.Any(m=>m.HomeResTeamID==homeId&&m.AwayResTeamID==awayId);
+           return check;
+        }
+
+        public void  CreateMatch(Match match)
+        {
+            _context.Matches.Add(match);
+            _context.SaveChanges();
+        }
+
+        public void CreateResult(Result result)
+        {
+             _context.Results.Add(result);
+            _context.SaveChanges();
+        }
+
         public void CreateTeam(Team team)
         {
             _context.Teams.Add(team);
             _context.SaveChanges();
+        }
+
+        public async Task<IEnumerable<Match>> GetAllMatchAsync()
+        {
+            var matches=await _context.Matches
+                                .Include(h=>h.HomeRes)
+                                .Include(a=>a.AwayRes)
+                                .Include(r=>r.Result)
+                                .Include(s=>s.Stadium)
+                                .AsNoTracking().ToListAsync();
+
+                                
+            return matches;
         }
 
         public IEnumerable<Team> GetAllTeams()

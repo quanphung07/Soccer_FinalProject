@@ -10,6 +10,6 @@ namespace FinalTest.Configuration
         {
            builder.ToTable("result");
            builder.HasKey(k=>k.MatchID);
-        }
+    }
     }
 }

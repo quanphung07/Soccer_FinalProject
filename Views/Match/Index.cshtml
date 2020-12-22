@@ -1,0 +1,35 @@
+@model IEnumerable<FinalTest.Models.Match>
+@{
+    ViewData["Title"]="Details Match";
+}
+<table border="1" cellpadding="15">
+    <thead>
+        <th>Match ID</th>
+        <th>Date Time</th>
+        <th>Attendance</th>
+        <th>Home Team</th>
+        <th>Away Team</th>
+        <th>Satdium</th>
+        <th>Result</th>
+        
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MatchID</td>
+                <td>@item.Datetime</td>
+                <td>@item.Attendance</td>
+                <td>@item.HomeRes.TeamName
+                    <img src="~/Image/@item.HomeRes.TeamImage">
+                </td>
+                <td>@item.AwayRes.TeamName
+                    <img src="~/Image/@item.AwayRes.TeamImage">
+                </td>
+                <td>@item.Stadium.StadiumName</td>
+                <td>@item.Result.Homeres - @item.Result.Awayres</td>
+            </tr>
+        }
+    </tbody>
+    <a asp-action="Create" asp-controller="Match">Create a match</a>
+</table>
