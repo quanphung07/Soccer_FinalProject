@@ -33,16 +33,18 @@ namespace FinalTest.Controllers
            {
                return NotFound();
            }
-           Console.Write(id);
-           var player=_repo.GetPlayerById(id);
+          
+           var player= await _repo.GetPlayerByIdAsync(id);
+            
 
            if( await TryUpdateModelAsync<Player>(player,"",
-            p=>p.FirstName,p=>p.LastName,p=>p.Kit,p=>p.Position,p=>p.Country))
+           p=>p.PlayerID,p=>p.FirstName,p=>p.LastName,p=>p.Kit,p=>p.Position,p=>p.Country))
            {
                try
                {
 
                   await _repo.SaveChangesAsync();
+                  Console.Write(player.Kit);
                    return RedirectToAction("Edit",new {id=player.PlayerID,isSuccess=true});
                }
                catch(DbUpdateException)

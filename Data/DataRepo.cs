@@ -40,6 +40,12 @@ namespace FinalTest.Data
                     .FirstOrDefault(p=>p.PlayerID==id);
         }
 
+        public async Task<Player> GetPlayerByIdAsync(int? id)
+        {
+            var player= await _context.Players.FirstOrDefaultAsync(p=>p.PlayerID==id);
+            return player;
+        }
+
         public Stadium GetStadiumByName(string name)
         {
             var stadium=_context.Stadiums

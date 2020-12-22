@@ -5,6 +5,8 @@
 @if(@ViewBag.Success)
 {
     <h2 class="text-success">Update successed</h2>
+    <a asp-action="Details" asp-controller="Team" asp-route-teamName="@Model.Team.TeamName">Back To Teams</a>
+
 }
 else
 {

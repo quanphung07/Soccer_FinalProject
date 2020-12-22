@@ -19,5 +19,6 @@ namespace FinalTest.Data
         Stadium GetStadiumByName(string name);
         bool SaveChanges();
         Task<bool> SaveChangesAsync();
+        Task<Player> GetPlayerByIdAsync(int? id);
     }
 }
