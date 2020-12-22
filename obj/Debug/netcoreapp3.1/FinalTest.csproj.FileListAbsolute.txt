@@ -58,3 +58,4 @@
 /home/quanbka/FinalTest/obj/Debug/netcoreapp3.1/Razor/Views/Team/Details.cshtml.g.cs
 /home/quanbka/FinalTest/obj/Debug/netcoreapp3.1/Razor/Views/Player/Details.cshtml.g.cs
 /home/quanbka/FinalTest/obj/Debug/netcoreapp3.1/Razor/Views/Stadium/Details.cshtml.g.cs
+/home/quanbka/FinalTest/obj/Debug/netcoreapp3.1/Razor/Views/Player/Edit.cshtml.g.cs

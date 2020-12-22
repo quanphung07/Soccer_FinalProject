@@ -14392,6 +14392,11 @@
   "RootNamespace": "FinalTest",
   "Documents": [
     {
+      "FilePath": "/home/quanbka/FinalTest/Views/Player/Edit.cshtml",
+      "TargetPath": "Views\\Player\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "/home/quanbka/FinalTest/Views/_ViewStart.cshtml",
       "TargetPath": "Views\\_ViewStart.cshtml",
       "FileKind": "mvc"

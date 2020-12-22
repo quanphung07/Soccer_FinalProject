@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using FinalTest.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -32,7 +33,7 @@ namespace FinalTest.Data
             return teams.ToList();
         }
 
-        public Player GetPlayerById(int id)
+        public Player GetPlayerById(int? id)
         {
             return _context.Players
                     .Include(t=>t.Team).AsNoTracking()
@@ -62,6 +63,15 @@ namespace FinalTest.Data
             return _context.SaveChanges()>0;
         }
 
-        
+        public async Task<bool> SaveChangesAsync()
+        {
+            return await _context.SaveChangesAsync()>0;
+        }
+
+        public void UpdatePlayer(Player player)
+        {
+            _context.Update(player);
+            _context.SaveChanges();
+        }
     }
 }

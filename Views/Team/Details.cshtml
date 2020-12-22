@@ -24,7 +24,15 @@
                         <ul>
                         <li><a asp-controller="Player" asp-action="Details" asp-route-id="@item.PlayerID">
                                 <h4>@item.FullName</h4>
-                            </a>(<span>@item.Position</span>) </li>
+                            </a>(<span>Position:@item.Position</span>)
+                            
+                           <div style="margin-top: 20px;">
+                            <a asp-controller="Player" asp-action="Edit" asp-route-id="@item.PlayerID" >Edit</a>
+                            <a asp-controller="Player" asp-action="Delete" asp-route-id="@item.PlayerID" >Delete</a>
+                            <a asp-controller="Player" asp-action="Details" asp-route-id="@item.PlayerID" >Details</a>
+                           </div>
+                            </li>
+                            <hr/>
                     </ul>
                     
                     
