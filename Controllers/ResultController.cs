@@ -29,7 +29,7 @@ namespace FinalTest.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("MatchID,Homeres,Awayres")] Result result)
         {
-
+            
             if(ModelState.IsValid)
             {
                 try

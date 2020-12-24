@@ -21,12 +21,17 @@ namespace FinalTest.Data
         bool SaveChanges();
         Task<bool> SaveChangesAsync();
         Task<Player> GetPlayerByIdAsync(int? id);
+        void GetAllPlayers();
         //match data
         Task<IEnumerable<Match>> GetAllMatchAsync();
         void CreateMatch(Match match);
         bool checkExist(int homeId,int awayId);
+        Task<Match> GetMatchById(int matchId);
 
         //result data
         void CreateResult(Result result);
+        //score data
+        Task<IEnumerable<Score>> GetScores(int matchId);
+
     }
 }

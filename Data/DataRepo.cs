@@ -1,8 +1,10 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FinalTest.Models;
 using Microsoft.EntityFrameworkCore;
+using Npgsql;
 
 namespace FinalTest.Data
 {
@@ -16,6 +18,7 @@ namespace FinalTest.Data
 
         public void AddPlayer(Player player)
         {
+            
             _context.Players.Add(player);
             _context.SaveChanges();
         }
@@ -57,11 +60,43 @@ namespace FinalTest.Data
             return matches;
         }
 
+        public void GetAllPlayers()
+        {
+             NpgsqlConnection conn=null;
+             var connStr="Server=localhost;Port=5432;User ID=postgres;Password=crquan07;Database=finaltest_db;Pooling=True;";
+             using(conn=new NpgsqlConnection(connStr))
+             {
+                 conn.Open();
+                 var cmdStr="Select * from player";
+                 NpgsqlCommand cmd=new NpgsqlCommand(cmdStr,conn);
+                 using(NpgsqlDataReader rd=cmd.ExecuteReader())
+                 {
+                     while(rd.Read())
+                     {
+                         Console.WriteLine("{0},{1},{2}",rd[0],rd[1],rd[2]);
+                     }
+                 }
+            
+             }
+        }
+
         public IEnumerable<Team> GetAllTeams()
         {
             var teams=_context.Teams
                         .Include(s=>s.Stadium).AsNoTracking();
             return teams.ToList();
+        }
+
+        public async Task<Match> GetMatchById(int matchId)
+        {
+            var match=await _context.Matches
+                        .Include(ht=>ht.HomeRes)
+                        .Include(at=>at.AwayRes)
+                         .FirstOrDefaultAsync(m=>m.MatchID==matchId);
+                Console.WriteLine(match.AwayRes.TeamName);         
+            return match;
+
+
         }
 
         public Player GetPlayerById(int? id)
@@ -75,6 +110,15 @@ namespace FinalTest.Data
         {
             var player= await _context.Players.FirstOrDefaultAsync(p=>p.PlayerID==id);
             return player;
+        }
+
+        public async Task<IEnumerable<Score>> GetScores(int matchId)
+        {
+            var scores= await _context.Scores.Where(m=>m.MatchID==matchId)
+                        .Include(p=>p.Player)
+                        .Include(t=>t.Team)
+                        .AsNoTracking().ToListAsync();
+            return scores;
         }
 
         public Stadium GetStadiumByName(string name)

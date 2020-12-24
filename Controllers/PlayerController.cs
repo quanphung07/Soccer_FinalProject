@@ -14,6 +14,13 @@ namespace FinalTest.Controllers
         {
             _repo=repo;
         }
+        [Route("player/allplayers")]
+        public IActionResult GetAllPlayers()
+        {
+            _repo.GetAllPlayers();
+            return Content("Ok");
+        }
+
        public IActionResult Details(int id)
        {
            var player=_repo.GetPlayerById(id);

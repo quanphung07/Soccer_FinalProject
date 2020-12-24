@@ -18,7 +18,7 @@
         {
             <tr>
                 <td>@item.MatchID</td>
-                <td>@item.Datetime</td>
+                <td>@item.Datetime.ToString("MM/dd/yyyy")</td>
                 <td>@item.Attendance</td>
                 <td>@item.HomeRes.TeamName
                     <img src="~/Image/@item.HomeRes.TeamImage">
@@ -27,7 +27,7 @@
                     <img src="~/Image/@item.AwayRes.TeamImage">
                 </td>
                 <td>@item.Stadium.StadiumName</td>
-                <td>@item.Result.Homeres - @item.Result.Awayres</td>
+                <td><a asp-action="Details" asp-controller="Score" asp-route-matchId="@item.MatchID">@item.Result.Homeres - @item.Result.Awayres</a></td>
             </tr>
         }
     </tbody>

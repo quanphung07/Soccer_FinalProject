@@ -14455,6 +14455,11 @@
       "FilePath": "/home/quanbka/FinalTest/Views/Player/Details.cshtml",
       "TargetPath": "Views\\Player\\Details.cshtml",
       "FileKind": "mvc"
+    },
+    {
+      "FilePath": "/home/quanbka/FinalTest/Views/Score/Details.cshtml",
+      "TargetPath": "Views\\Score\\Details.cshtml",
+      "FileKind": "mvc"
     }
   ],
   "SerializationFormat": "0.2"
