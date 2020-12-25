@@ -15,5 +15,6 @@ namespace FinalTest.Controllers
             var stadium=_repo.GetStadiumByName(stadiumName);
             return View(stadium);
         }
+        
     }
 }

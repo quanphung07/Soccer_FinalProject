@@ -64,3 +64,4 @@
 /home/quanbka/FinalTest/obj/Debug/netcoreapp3.1/Razor/Views/Match/Create.cshtml.g.cs
 /home/quanbka/FinalTest/obj/Debug/netcoreapp3.1/Razor/Views/Result/Create.cshtml.g.cs
 /home/quanbka/FinalTest/obj/Debug/netcoreapp3.1/Razor/Views/Score/Details.cshtml.g.cs
+/home/quanbka/FinalTest/obj/Debug/netcoreapp3.1/Razor/Views/Score/Create.cshtml.g.cs

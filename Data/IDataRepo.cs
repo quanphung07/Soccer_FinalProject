@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using FinalTest.Dtos;
 using FinalTest.Models;
 
 namespace FinalTest.Data
@@ -7,14 +8,15 @@ namespace FinalTest.Data
     public interface IDataRepo
     {
         //Team Data
-        IEnumerable<Team> GetAllTeams();
         Task<Team> GetTeamByNameAsync(string name);
-        void CreateTeam(Team team);
+        Task<int> CreateTeam(Team team);
         Task<Team> GetTeamAsync(int? id);
+        Task<IEnumerable<TeamDtos>> GetAllTeams_ver1();
+        
       
                 //Player Data
         Player GetPlayerById(int? id);
-        void AddPlayer(Player player);
+        Task <int> AddPlayer(Player player);
         void UpdatePlayer(Player player);
         //Stadium data
         Stadium GetStadiumByName(string name);
@@ -23,15 +25,16 @@ namespace FinalTest.Data
         Task<Player> GetPlayerByIdAsync(int? id);
         void GetAllPlayers();
         //match data
-        Task<IEnumerable<Match>> GetAllMatchAsync();
-        void CreateMatch(Match match);
+        Task<IEnumerable<MatchInfoDtos>> GetAllMatchAsync();
+        Task<int> CreateMatch(Match match);
         bool checkExist(int homeId,int awayId);
-        Task<Match> GetMatchById(int matchId);
+        Task<MatchInfoDtos> GetMatchById(int matchId);
 
         //result data
-        void CreateResult(Result result);
+        Task<int> CreateResult(Result result);
         //score data
         Task<IEnumerable<Score>> GetScores(int matchId);
+        Task<int> CreateScore(Score score);
 
     }
 }

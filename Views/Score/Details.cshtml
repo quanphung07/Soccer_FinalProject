@@ -4,8 +4,13 @@
 }    
 <table border="1" cellpadding="15">
     <thead>
-        <th>@ViewData["HomeTeam"]</th>
-         <th>@ViewData["AwayTeam"]</th>
+        <th><h3>@ViewData["HomeTeam"]</h3>
+          <img style="margin-left: 50px;" src="~/Image/@ViewData["HomeImage"]">
+        </th>
+         <th><h3>@ViewData["AwayTeam"]</h3>
+           <img style="margin-left: 50px;" src="~/Image/@ViewData["AwayImage"]">
+         </th>
+
     </thead>
     <tbody>
       

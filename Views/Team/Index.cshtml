@@ -1,4 +1,4 @@
-@model IEnumerable<FinalTest.Models.Team>
+@model IEnumerable<FinalTest.Dtos.TeamDtos>
 @{
     ViewData["Title"]="Index";
 }    
@@ -14,14 +14,14 @@
             <th><h3>Team Stadium</h3></th>
         </thead>
         <tbody>
-            @foreach (var item in Model)
+            @foreach (var item in Model)    
         {
             <tr>
                 <td>@position</td>
                 <td><a asp-action="Details" asp-route-teamName="@item.TeamName">@item.TeamName</a>
                 <img src="~/Image/@item.TeamImage" >
                 </td>
-                <td><a asp-action="Details" asp-controller="Stadium" asp-route-stadiumName="@item.Stadium.StadiumName">@item.Stadium.StadiumName</a></td>
+                <td><a asp-action="Details" asp-controller="Stadium" asp-route-stadiumName="@item.StadiumName">@item.StadiumName</a></td>
             </tr>
            position+=1;
             

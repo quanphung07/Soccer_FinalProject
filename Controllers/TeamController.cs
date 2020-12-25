@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using FinalTest.Data;
 using FinalTest.Models;
@@ -14,9 +15,11 @@ namespace FinalTest.Controllers
         {
             _repo=repo;
         }
-        public IActionResult Index()
+       
+        public async Task<IActionResult> Index()
         {
-            var teams=_repo.GetAllTeams();
+           // var teams=_repo.GetAllTeams();
+           var teams= await _repo.GetAllTeams_ver1();
             return View(teams);
         }
         public async Task<IActionResult> Details(string teamName)
@@ -42,8 +45,9 @@ namespace FinalTest.Controllers
             {
                 if(ModelState.IsValid)
                 {
-                    _repo.AddPlayer(player);
+                    var rows=await _repo.AddPlayer(player);
                     await _repo.SaveChangesAsync();
+                    Console.WriteLine(rows);
                     return RedirectToAction("Details",new {teamName=team.TeamName});
 
                 }

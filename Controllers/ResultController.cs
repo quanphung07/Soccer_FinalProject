@@ -34,16 +34,16 @@ namespace FinalTest.Controllers
             {
                 try
                 {
-                    _repo.CreateResult(result);
+                    await _repo.CreateResult(result);
                     await _repo.SaveChangesAsync();
-                    return RedirectToAction("Index","Match");
+                   
                 }
                 catch(DbUpdateException)
                 {
                     ModelState.AddModelError("","oops");
                 }
             }
-            return View(result);
+             return RedirectToAction("Create","Score",new{matchId=result.MatchID});
         }
     }
 }

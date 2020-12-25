@@ -29,6 +29,7 @@ namespace FinalTest.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("MatchID,Datetime,Attendance,HomeResTeamID,AwayResTeamID,StadiumID")] Match match)
         {
+            int rows;
             if(_repo.checkExist(match.HomeResTeamID,match.AwayResTeamID))
             {
                 return RedirectToAction("Create",new{checkExist=true});
@@ -37,16 +38,16 @@ namespace FinalTest.Controllers
             {
                 try
                 {
-                    _repo.CreateMatch(match);
+                    rows=await _repo.CreateMatch(match);
                     await _repo.SaveChangesAsync();
-                    return RedirectToAction("Create","Result",new {id=match.MatchID});
+                    
                 }
                 catch(DbUpdateException)
                 {
                     ModelState.AddModelError("","oops");
                 }
             }
-            return View(match);
+            return RedirectToAction("Create","Result",new {id=match.MatchID});;
         }
     }
 }
