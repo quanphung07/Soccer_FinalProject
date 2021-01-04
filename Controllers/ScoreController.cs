@@ -46,7 +46,7 @@ namespace FinalTest.Controllers
                 }
 
         }
-        return RedirectToAction("Index","Match");
+        return RedirectToAction("Create","Score",new {matchId=score.MatchID});
 
 
         }

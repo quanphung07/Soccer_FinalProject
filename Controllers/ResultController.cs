@@ -43,7 +43,7 @@ namespace FinalTest.Controllers
                     ModelState.AddModelError("","oops");
                 }
             }
-             return RedirectToAction("Create","Score",new{matchId=result.MatchID});
+             return RedirectToAction("Index","Match");
         }
     }
 }
